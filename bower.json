@@ -1,12 +1,12 @@
 {
-  "name": "brick-boilerplate",
+  "name": "x-layout",
   "version": "0.0.0",
   "homepage": "https://github.com/mozilla/brick-boilerplate",
   "authors": [
     "Matt Claypotch <thepotch@gmail.com>",
     "Christian Weiss <christian.x.weiss@gmail.com>"
   ],
-  "description": "Empty Brick Component Project",
+  "description": "Event wiring for custom elements",
   "main": "src/element.html",
   "keywords": [
     "brick",
