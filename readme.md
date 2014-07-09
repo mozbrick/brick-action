@@ -1,6 +1,6 @@
 # brick-action
 
-> A [Brick](https://github.com/mozbrick/brick/) custom element starter-kit.
+> A [Brick](https://github.com/mozbrick/brick/) custom element to wire up events and methods on different elements.
 
 ## Demo
 
