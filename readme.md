@@ -33,7 +33,7 @@ Attribute     | Options     | Default      | Description
 `target`      | *string*    |              | ID of the target element.
 `source`      | *string*    |              | ID of the source element.
 `trigger`     | *string*    |              | Name of the event to listen for on the soure element.
-`action`      | *string*    | `bar`        | Name of the method to call on the target element.
+`action`      | *string*    | `click`      | Name of the method to call on the target element.
 
 ## Development
 
