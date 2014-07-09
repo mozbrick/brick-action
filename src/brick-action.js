@@ -1,5 +1,7 @@
 (function () {
 
+  var BrickActionElementPrototype = Object.create(HTMLElement.prototype);
+
   function cleanupHandler(el) {
     var pair = el._ns.listener;
     if (pair[0]) {
@@ -40,31 +42,30 @@
     sourceEl.addEventListener(trigger, listener);
   }
 
-  var XActionPrototype = Object.create(HTMLElement.prototype);
-
-  // Lifecycle methods
-
-  XActionPrototype.createdCallback = function () {
+  BrickActionElementPrototype.createdCallback = function () {
     this._ns = {};
   };
 
-  XActionPrototype.attachedCallback = function () {
+  BrickActionElementPrototype.attachedCallback = function () {
     setupHandler(this);
   };
 
-  XActionPrototype.detachedCallback = function () {
+  BrickActionElementPrototype.detachedCallback = function () {
     cleanupHandler(this);
+
   };
 
-  XActionPrototype.attributeChangedCallback = function () {
+  BrickActionElementPrototype.attributeChangedCallback = function () {
     cleanupHandler(this);
     setupHandler(this);
   };
 
-  // Register the element
+  BrickActionElementPrototype.foo = function () {
 
-  window.XAction = document.registerElement('custom-element', {
-    prototype: XActionPrototype
+  };
+
+  window.BrickActionElement = document.registerElement('brick-action', {
+    prototype: BrickActionElementPrototype
   });
 
 })();
