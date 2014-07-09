@@ -1,10 +1,10 @@
-# Brick-Boilerplate
+# brick-action
 
-> A [Brick](https://github.com/mozilla/brick/) custom element starter-kit.
+> A [Brick](https://github.com/mozbrick/brick/) custom element starter-kit.
 
 ## Demo
 
-[Check it live!](http://my-user.github.io/my-repo)
+[Check it live!](http://mozbrick.github.io/brick-action)
 
 ## Usage
 
@@ -23,26 +23,17 @@
 3. Start using it:
 
     ```html
-    <custom-element></custom-element>
+    <brick-action></brick-action>
     ```
 
 ## Options
 
 Attribute     | Options     | Default      | Description
 ---           | ---         | ---          | ---
-`foo`         | *string*    | `bar`        | An Attribute.
-
-## Methods
-
-Method        | Parameters   | Returns     | Description
----           | ---          | ---         | ---
-`method()`    | None.        | Nothing.    | A method.
-
-## Events
-
-Event         | Description
----           | ---
-`onsomething` | Triggers when something happens.
+`target`      | *string*    |              | ID of the target element.
+`source`      | *string*    |              | ID of the source element.
+`trigger`     | *string*    |              | Name of the event to listen for on the soure element.
+`action`      | *string*    | `bar`        | Name of the method to call on the target element.
 
 ## Development
 
@@ -69,12 +60,8 @@ While developing your component, there is a development server that will watch y
 To run the development server:
 
 * Run `gulp server`
-* Navigate to `http:localhost:3001`
+* Navigate to `http://localhost:3001`
 
 To simply build and lint your code, run `gulp build`.
 
 You can also push your code to GitHub Pages by running `gulp deploy`.
-
-## License
-
-[MIT License](http://opensource.org/licenses/MIT)
