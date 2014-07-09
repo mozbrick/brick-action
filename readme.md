@@ -1,6 +1,7 @@
 # brick-action
 
 > A [Brick](https://github.com/mozbrick/brick/) custom element to wire up events and methods on different elements.
+It listens to an event on a source elemenet and then calls a method on a target element using event.detail as argument.
 
 ## Demo
 
