@@ -23,8 +23,14 @@ It listens to an event on a source elemenet and then calls a method on a target 
 
 3. Start using it:
 
+    The following attribute values reflect an arbitrary example.
+
     ```html
-    <brick-action></brick-action>
+    <brick-action src="menu-button"
+              trigger="click"
+               target="menu-drawer"
+               action="reveal">
+    </brick-action>
     ```
 
 ## Options
