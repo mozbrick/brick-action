@@ -60,10 +60,6 @@
     setupHandler(this);
   };
 
-  BrickActionElementPrototype.foo = function () {
-
-  };
-
   window.BrickActionElement = document.registerElement('brick-action', {
     prototype: BrickActionElementPrototype
   });
