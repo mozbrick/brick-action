@@ -9,7 +9,7 @@
     <script src="bower_components/platform/platform.js"></script>
 
     <!-- Importing Custom Elemenent -->
-    <link rel="import" href="src/brick-action.html">
+    <link rel="import" href="dist/brick-action.local.html">
 
     <!-- Importing Flipbox for the Demo -->
     <link rel="import" href="bower_components/brick-flipbox/src/brick-flipbox.html">
@@ -34,8 +34,9 @@
       <div>front</div>
       <div>back</div>
     </brick-flipbox>
-    <button id="button">toggle</button>
-    <brick-action source="button" target="flipbox" action="toggle">
+
+    <brick-action target="flipbox" action="toggle">
+      <button>toggle</button>
     </brick-action>
 
   </body>
