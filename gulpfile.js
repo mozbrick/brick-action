@@ -1,21 +1,22 @@
 /* jshint node:true */
+'use strict';
+
+var bowerDist = require('gulp-bower-dist');
 var bump = require('gulp-bump');
-var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var ghpages = require('gulp-gh-pages');
 var gulp = require('gulp');
 var helptext = require('gulp-helptext');
 var jshint = require('gulp-jshint');
-var stylus = require('gulp-stylus');
+var rename = require('gulp-rename');
+var vulcanize = require('gulp-vulcanize');
 
 var paths = {
   'main': 'src/brick-action.html',
   'scripts': 'src/*.js',
-  'stylesheets': 'src/*.styl',
   'src': 'src/*',
   'index': 'index.html',
   'bowerComponents': 'bower_components/**/*',
-  'testfiles': ['test/*', 'bower_components/platform/platform.js']
 };
 
 gulp.task('lint', function() {
@@ -24,16 +25,39 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('styles', function() {
-  gulp.src(paths.stylesheets)
-    .pipe(stylus())
-    .pipe(concat('brick-action.css'))
-    .pipe(gulp.dest('src'));
+gulp.task('rename', ['vulcanize'], function() {
+  return gulp.src('dist/brick-action.html')
+    .pipe(rename(function(path){
+      path.basename += '.local';
+    }))
+    .pipe(gulp.dest('dist'));
 });
 
-// build scripts and styles
-gulp.task('build', ['lint','styles']);
+gulp.task('vulcanize', function() {
+  return gulp.src('src/brick-action.html')
+    .pipe(vulcanize({
+      excludes: {
+        imports: ['bower_components'],
+        scripts: ['bower_components'],
+        styles: ['bower_components']
+      },
+      dest: 'dist',
+      csp: true,
+      inline: true
+    }))
+    .pipe(gulp.dest('dist'));
+});
 
+gulp.task('dist', ['vulcanize'], function () {
+  return gulp.src('dist/*.local.html')
+    .pipe(bowerDist())
+    .pipe(rename(function(path) {
+      path.basename = path.basename.replace('.local', '');
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['lint','vulcanize', 'rename','dist']);
 
 gulp.task('connect', function() {
   connect.server({
@@ -41,10 +65,8 @@ gulp.task('connect', function() {
   });
 });
 
-
 gulp.task('watch', function () {
   gulp.watch(paths.scripts, ['lint']);
-  gulp.watch(paths.stylesheets, ['styles']);
 });
 
 // do a build, start a server, watch for changes
@@ -60,10 +82,11 @@ gulp.task('bump', function(){
 gulp.task('help', helptext({
   'default': 'Shows the help message',
   'help': 'This help message',
-  'styles': 'Compiles stylus',
+  'styles': 'Compiles main stylus',
+  'themes': 'Compiles themes stylus',
+  'vulcanize': 'Vulcanizes to component html file',
   'lint': 'Runs JSHint on your code',
   'server': 'Starts the development server',
-  'test': 'Runs the tests',
   'bump': 'Bumps up the Version',
   'deploy': 'Publish to Github pages'
 }));
