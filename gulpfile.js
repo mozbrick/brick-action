@@ -82,8 +82,6 @@ gulp.task('bump', function(){
 gulp.task('help', helptext({
   'default': 'Shows the help message',
   'help': 'This help message',
-  'styles': 'Compiles main stylus',
-  'themes': 'Compiles themes stylus',
   'vulcanize': 'Vulcanizes to component html file',
   'lint': 'Runs JSHint on your code',
   'server': 'Starts the development server',
