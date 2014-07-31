@@ -2,7 +2,7 @@
   "name": "brick-action",
   "version": "0.0.0",
   "description": "A component for wiring up events and methods.",
-  "main": "brick-action.html",
+  "main": "dist/brick-action.html",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start karma.conf.js --single-run"
   },
