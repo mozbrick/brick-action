@@ -15,6 +15,7 @@ var paths = {
   'main': 'src/brick-action.html',
   'scripts': 'src/*.js',
   'src': 'src/*',
+  'dist': 'dist/**/*',
   'index': 'index.html',
   'bowerComponents': 'bower_components/**/*',
 };
@@ -93,7 +94,7 @@ gulp.task('help', helptext({
 gulp.task('deploy', function () {
   gulp.src([
     paths.index,
-    paths.src,
+    paths.dist,
     paths.bowerComponents
   ],{base:'./'})
     .pipe(ghpages());
