@@ -60,8 +60,10 @@
     setupHandler(this);
   };
 
-  window.BrickActionElement = document.registerElement('brick-action', {
-    prototype: BrickActionElementPrototype
-  });
+  if (!window.BrickActionElement) {
+    window.BrickActionElement = document.registerElement('brick-action', {
+      prototype: BrickActionElementPrototype
+    });
+  }
 
 })();
