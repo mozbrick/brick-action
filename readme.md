@@ -1,7 +1,7 @@
 # brick-action
 
 > A [Brick](https://github.com/mozbrick/brick/) custom element to wire up events and methods on different elements.
-It listens to an event on a source elemenet and then calls a method on a target element using event.detail as argument.
+It listens to an event on a source element and then calls a method on a target element using `event.detail` as an argument.
 
 ## Demo
 
@@ -38,8 +38,8 @@ It listens to an event on a source elemenet and then calls a method on a target 
 Attribute     | Options     | Default      | Description
 ---           | ---         | ---          | ---
 `target`      | *string*    |              | ID of the target element.
-`source`      | *string*    | the element itself | ID of the source element. If not provided, the `brick-action` element will listen to events on itself. So you can wrap the source element inside `brick-action`
-`trigger`     | *string*    |              | Name of the event to listen for on the soure element.
+`source`      | *string*    | the element itself | ID of the source element. If not provided, the `brick-action` element will listen to events on itself. You can wrap the source element inside `brick-action`.
+`trigger`     | *string*    |              | Name of the event to listen for on the source element.
 `action`      | *string*    | `click`      | Name of the method to call on the target element.
 
 ## Development
