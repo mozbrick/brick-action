@@ -39,8 +39,8 @@ Attribute     | Options     | Default      | Description
 ---           | ---         | ---          | ---
 `target`      | *string*    |              | ID of the target element.
 `source`      | *string*    | the element itself | ID of the source element. If not provided, the `brick-action` element will listen to events on itself. You can wrap the source element inside `brick-action`.
-`trigger`     | *string*    |              | Name of the event to listen for on the source element.
-`action`      | *string*    | `click`      | Name of the method to call on the target element.
+`trigger`     | *string*    | `click`      | Name of the event to listen for on the source element.
+`action`      | *string*    |              | Name of the method to call on the target element.
 
 ## Development
 
